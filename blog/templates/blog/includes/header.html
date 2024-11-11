@@ -1,0 +1,15 @@
+<header class="p-3 bg-dark text-white">
+    <div class="row">
+        <div class="col">
+            <h3>Blog</h3>
+        </div>
+        <div class="col">
+            <div class="d-flex justify-content-center gap-3">
+                <a class="text-light text-decoration-none" href="http://127.0.0.1:8000/admin/">Admin</a>
+                {% comment %} <a class="text-light text-decoration-none" href="">About</a> {% endcomment %}
+                {% comment %} <a class="text-light text-decoration-none" href="{% url "blog:about"%}"> About</a> {% endcomment %}
+                <a class="text-light text-decoration-none" href="{% url "blog:contact"%}">Contact</a>
+            </div>
+        </div>
+    </div>
+</header>

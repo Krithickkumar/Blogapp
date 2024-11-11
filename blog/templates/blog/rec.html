@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Your Recently Viewed Posts</h1>
+
+    <section>
+        <h2>Recently Viewed</h2>
+        <ul class="list-group">
+            {% for post in recently_viewed_pro %}
+                <li class="list-group-item">
+                    <a href="{% url 'blog:detail' post.id %}">{{ post.Title }}</a>
+                </li>
+            {% empty %}
+                <li class="list-group-item">No recently viewed posts.</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <section class="mt-4">
+        <h2>All Posts</h2>
+        <ul class="list-group">
+            {% for post in all %}
+                <li class="list-group-item">
+                    <a href="{% url 'blog:detail' post.id %}">{{ post.Title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </section>
+</div>
+{% endblock %}

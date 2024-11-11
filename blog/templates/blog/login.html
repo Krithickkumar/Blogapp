@@ -1,0 +1,51 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>Login</h2>
+        
+        <!-- Login Form -->
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+
+
+{% comment %} {% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Login</h2>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="username">Username:</label>
+            {{ form.username }}
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password:</label>
+            {{ form.password }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+
+    {% if error %}
+    <div class="alert alert-danger mt-3">
+        {{ error }}
+    </div>
+    {% endif %}
+</div>
+{% endblock %} {% endcomment %}
+

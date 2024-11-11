@@ -1,0 +1,81 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 class="mb-4">{{ post.Title }}</h1>
+                <p class="text-muted">{{ post.Date_time }}</p>
+                <img src="{{ post.Img_url }}" class="img-fluid mb-4" alt="Blog Image">
+                <p>{{ post.Content }}</p>
+            </div>
+            <div class="col-lg-4">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Recently Viewed Posts</h5>
+                        <ul class="list-unstyled">
+                            {% for recent_post in recently_viewed_pro %}
+                                <li><a href="{% url 'blog:detail' recent_post.id %}">{{ recent_post.Title }}</a></li>
+                            {% empty %}
+                                <li>No recently viewed posts.</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const post = {
+            title: "{{ post.Title|escapejs }}",
+            date_time: "{{ post.Date_time|escapejs }}",
+            img_url: "{{ post.Img_url|escapejs }}",
+            content: "{{ post.Content|escapejs }}"
+        };
+
+        console.log(post, "hi this is sample");
+    </script>
+
+{% endblock %}
+
+
+{% comment %} {% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="container-fluid ">
+       
+        <div class="row">
+            <div class="col-lg-8">
+              <h1 class="mb-4">{{post.Title}}</h1>
+              <p class="text-muted">{{post.Date_time}}</p>
+              <img src="{{post.Img_url}}" class="img-fluid mb-4" alt="Blog Image">
+              <p>{{post.Content}}</p>
+            </div>
+            <div class="col-lg-4">
+              <div class="card mt-3">
+                <div class="card-body">
+                  <h5 class="card-title">Related Posts</h5>
+                  <ul class="list-unstyled">
+                    <li><a href="http://127.0.0.1:8000/post/1">Post 1</a></li>
+                    <li><a href="http://127.0.0.1:8000/post/2">Post 2</a></li>
+                    <li><a href="http://127.0.0.1:8000/post/3">Post 3</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+      const post = {
+          title: "{{ post.Title|escapejs }}",
+          date_time: "{{ post.Date_time|escapejs }}",
+          img_url: "{{ post.Img_url|escapejs }}",
+          content: "{{ post.Content|escapejs }}"
+      };
+  
+      console.log(post,"hi this is sample");
+  </script>
+
+{% endblock %} {% endcomment %}

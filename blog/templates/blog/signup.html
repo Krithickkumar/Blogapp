@@ -1,0 +1,55 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>Sign Up</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Sign Up</button>
+        </form>
+        
+        {% if messages %}
+            <div class="alert alert-info">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+{% comment %} {% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h2>Sign Up</h2>
+        
+        <!-- Signup Form -->
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            {% if messages %}
+                <div class="alert alert-info">
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+
+        {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+        {% endif %}
+    </div>
+{% endblock %} {% endcomment %}
